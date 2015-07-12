@@ -1,0 +1,22 @@
+{
+  "name": "mdast-inline-links",
+  "version": "0.0.0",
+  "description": "Transform references and definitions into normal links and images",
+  "license": "MIT",
+  "keywords": [
+    "reference",
+    "definition",
+    "to",
+    "normal",
+    "link",
+    "image",
+    "mdast"
+  ],
+  "dependencies": {
+    "wooorm/mdast-util-visit": "^0.1.1"
+  },
+  "repository": "wooorm/mdast-inline-links",
+  "scripts": [
+    "index.js"
+  ]
+}
