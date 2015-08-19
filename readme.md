@@ -1,4 +1,4 @@
-# mdast-inline-links [![Build Status](https://img.shields.io/travis/wooorm/mdast-inline-links.svg?style=flat)](https://travis-ci.org/wooorm/mdast-inline-links) [![Coverage Status](https://img.shields.io/coveralls/wooorm/mdast-inline-links.svg?style=flat)](https://coveralls.io/r/wooorm/mdast-inline-links?branch=master)
+# mdast-inline-links [![Build Status](https://img.shields.io/travis/wooorm/mdast-inline-links.svg)](https://travis-ci.org/wooorm/mdast-inline-links) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/mdast-inline-links.svg)](https://codecov.io/github/wooorm/mdast-inline-links)
 
 [**mdast**](https://github.com/wooorm/mdast) plug-in to transform
 references and definitions into normal links and images.

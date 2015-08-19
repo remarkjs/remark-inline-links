@@ -1,3 +1,11 @@
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:inline-links:test
+ * @fileoverview Test suite for mdast-inline-links.
+ */
+
 'use strict';
 
 /* eslint-env mocha */
@@ -6,9 +14,9 @@
  * Dependencies.
  */
 
-var inlineLinks = require('./index.js');
-var mdast = require('mdast');
 var assert = require('assert');
+var mdast = require('mdast');
+var inlineLinks = require('./index.js');
 
 /*
  * Tests.
@@ -27,7 +35,7 @@ describe('mdast-inline-links', function () {
             '',
             '[foo]: http://example.com "Example Domain"',
             ''
-        ].join('\n'), function (err, doc) {
+        ].join('\n'), function (err, file, doc) {
             done(err);
 
             assert.equal(doc, [

@@ -1,10 +1,12 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.mdastInlineLinks = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * @author Titus Wormer
- * @copyright 2015 Titus Wormer. All rights reserved.
- * @module mdast-inline-links
- * @fileoverview Plug-in to transform references and definitions
- *   into normal links and images.
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:inline-links
+ * @fileoverview
+ *   Plug-in to transform references and definitions into
+ *   normal links and images.
  */
 
 'use strict';
@@ -13,12 +15,13 @@
  * Dependencies.
  */
 
-var visit = require('mdast-util-visit');
+var visit = require('unist-util-visit');
 
 /**
  * Factory to transform a reference based on `definitions`.
  *
- * @param {Object.<string, Node>} definitions
+ * @param {Object.<string, Node>} definitions - Map of ids
+ *   to definitions.
  * @return {function(node, index, parent)}
  */
 function referenceFactory(definitions) {
@@ -61,7 +64,7 @@ function referenceFactory(definitions) {
 /**
  * Transformer.
  *
- * @param {Node} tree
+ * @param {Node} tree - mdast node to visit.
  */
 function transformer(tree) {
     var definitions = {};
@@ -92,12 +95,12 @@ function attacher() {
 
 module.exports = attacher;
 
-},{"mdast-util-visit":2}],2:[function(require,module,exports){
+},{"unist-util-visit":2}],2:[function(require,module,exports){
 /**
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer. All rights reserved.
- * @module mdast-util-visit
- * @fileoverview Utility to recursively walk over mdast nodes.
+ * @module unist:util:visit
+ * @fileoverview Utility to recursively walk over unist nodes.
  */
 
 'use strict';

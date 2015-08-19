@@ -1,9 +1,11 @@
 /**
  * @author Titus Wormer
- * @copyright 2015 Titus Wormer. All rights reserved.
- * @module mdast-inline-links
- * @fileoverview Plug-in to transform references and definitions
- *   into normal links and images.
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:inline-links
+ * @fileoverview
+ *   Plug-in to transform references and definitions into
+ *   normal links and images.
  */
 
 'use strict';
@@ -12,12 +14,13 @@
  * Dependencies.
  */
 
-var visit = require('mdast-util-visit');
+var visit = require('unist-util-visit');
 
 /**
  * Factory to transform a reference based on `definitions`.
  *
- * @param {Object.<string, Node>} definitions
+ * @param {Object.<string, Node>} definitions - Map of ids
+ *   to definitions.
  * @return {function(node, index, parent)}
  */
 function referenceFactory(definitions) {
@@ -60,7 +63,7 @@ function referenceFactory(definitions) {
 /**
  * Transformer.
  *
- * @param {Node} tree
+ * @param {Node} tree - mdast node to visit.
  */
 function transformer(tree) {
     var definitions = {};
