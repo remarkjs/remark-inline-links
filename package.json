@@ -1,6 +1,6 @@
 {
   "name": "remark-inline-links",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Transform references and definitions into normal links and images",
   "license": "MIT",
   "keywords": [
