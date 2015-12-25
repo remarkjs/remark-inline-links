@@ -21,7 +21,7 @@ var visit = require('unist-util-visit');
  *
  * @param {Object.<string, Node>} definitions - Map of ids
  *   to definitions.
- * @return {function(node, index, parent)}
+ * @return {Function} - Reference handler.
  */
 function referenceFactory(definitions) {
     /**
@@ -82,7 +82,7 @@ function transformer(tree) {
 /**
  * Attacher.
  *
- * @return {function(node)}
+ * @return {function(node)} - Transformer.
  */
 function attacher() {
     return transformer;
