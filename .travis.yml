@@ -6,3 +6,12 @@ node_js:
 - iojs
 sudo: false
 after_script: npm install codecov.io && cat ./coverage/lcov.info | codecov
+deploy:
+  provider: releases
+  api_key:
+    secure: EDYIayCVM3f2L4vdzF+bamaEH5cXFie0qfm1VblyDppiohuVb63glYfBJzm/+VTcPxHaVWEP/hqx07Ewt5yzQx2xWNO9Jq6VuH0N/M0XrCQrmRRgR8YDYGYNFCBYtLDbjJsvTnEsH0Zv+nSSRHiVWdK5ZKuSazjvex8V8HOEXox2T8j3RyuGWeP0Ytceq6L5lquceYszVdAshF8m5bYl3wjatq3nFScU3pdjzq+xzZhsy442FDxV+q3As6LVp9m/fhp+RuVWKwILwJXlHKKmEAfxxSs3Ky2eA2Hhbx/5qqTbUID2+UYe8bJkXkphB/8OtvHmhBRejRWOtabABxFKhsZ8WfMyTQVYt2hXr8RvsX0SQHVvHbzGaBmQuu8HLNbYqjLH4wB8C+LIr3mgroytoEhP2Eqz2f2aLM0ACSR/HLFSlWqaM3pxBXZ64mnDI8WhvG4dH7v/UyuNNnUc0kascNd9iwiD2Jn4/CZMg5ECC1eEN4/7dqenK0+46NBFVbrQmOxZxM4gUCWQ2276KEOsrVZfBYLT0DsGdHx46e7z5ZHrrdDc9XA5S0p3ww0vBcxtByVha0LVnMFvxke3QJycdPE2+XO/ZfzQk3jFrIEU8HmK+QX7vSNYdAOyFUrPbZaL8TwJKdrWFk+tuvgfIm+w2Mm3QQLkTctl1AAdgXxR4B4=
+  file:
+    - "remark-inline-links.js"
+    - "remark-inline-links.min.js"
+  on:
+    tags: true

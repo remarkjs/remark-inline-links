@@ -14,8 +14,7 @@ npm install remark-inline-links
 **remark-inline-links** is also available for [bower](http://bower.io/#install-packages),
 [component](https://github.com/componentjs/component), and
 [duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
-module, [uncompressed](remark-inline-links.js) and
-[compressed](remark-inline-links.min.js).
+module, [uncompressed and compressed](https://github.com/wooorm/remark-inline-links/releases).
 
 ## Usage
 
