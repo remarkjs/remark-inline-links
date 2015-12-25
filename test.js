@@ -14,7 +14,7 @@
  * Dependencies.
  */
 
-var assert = require('assert');
+var test = require('tape');
 var remark = require('remark');
 var inlineLinks = require('./index.js');
 
@@ -22,36 +22,36 @@ var inlineLinks = require('./index.js');
  * Tests.
  */
 
-describe('remark-inline-links', function () {
-    it('should work', function (done) {
-        remark.use(inlineLinks).process([
-            '[foo], [foo][], [bar][foo].',
+test('remark-inline-links', function (t) {
+    remark.use(inlineLinks).process([
+        '[foo], [foo][], [bar][foo].',
+        '',
+        '![foo], ![foo][], ![bar][foo].',
+        '',
+        '[baz], [baz][], [bar][baz].',
+        '',
+        '![baz], ![baz][], ![bar][baz].',
+        '',
+        '[foo]: http://example.com "Example Domain"',
+        ''
+    ].join('\n'), function (err, file, doc) {
+        t.ifErr(err);
+
+        t.equal(doc, [
+            '[foo](http://example.com "Example Domain"), ' +
+                '[foo](http://example.com "Example Domain"), ' +
+                '[bar](http://example.com "Example Domain").',
             '',
-            '![foo], ![foo][], ![bar][foo].',
+            '![foo](http://example.com "Example Domain"), ' +
+                '![foo](http://example.com "Example Domain"), ' +
+                '![bar](http://example.com "Example Domain").',
             '',
             '[baz], [baz][], [bar][baz].',
             '',
             '![baz], ![baz][], ![bar][baz].',
-            '',
-            '[foo]: http://example.com "Example Domain"',
             ''
-        ].join('\n'), function (err, file, doc) {
-            done(err);
+        ].join('\n'));
 
-            assert.equal(doc, [
-                '[foo](http://example.com "Example Domain"), ' +
-                    '[foo](http://example.com "Example Domain"), ' +
-                    '[bar](http://example.com "Example Domain").',
-                '',
-                '![foo](http://example.com "Example Domain"), ' +
-                    '![foo](http://example.com "Example Domain"), ' +
-                    '![bar](http://example.com "Example Domain").',
-                '',
-                '[baz], [baz][], [bar][baz].',
-                '',
-                '![baz], ![baz][], ![bar][baz].',
-                ''
-            ].join('\n'));
-        });
+        t.end();
     });
 });
