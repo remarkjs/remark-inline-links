@@ -27,10 +27,14 @@ var inlineLinks = require('remark-inline-links');
 Process:
 
 ```javascript
-var doc = remark().use(inlineLinks).process(`[foo], [foo][], [bar][foo].
-![foo], ![foo][], ![bar][foo].
-[foo]: http://example.com "Example Domain"`
-);
+var doc = remark().use(inlineLinks).process([
+    '[foo], [foo][], [bar][foo].',
+    '',
+    '![foo], ![foo][], ![bar][foo].',
+    '',
+    '[foo]: http://example.com "Example Domain"',
+    ''
+].join('\n'));
 ```
 
 Yields:
