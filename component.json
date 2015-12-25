@@ -1,5 +1,5 @@
 {
-  "name": "mdast-inline-links",
+  "name": "remark-inline-links",
   "version": "1.0.0",
   "description": "Transform references and definitions into normal links and images",
   "license": "MIT",
@@ -10,12 +10,12 @@
     "normal",
     "link",
     "image",
-    "mdast"
+    "remark"
   ],
   "dependencies": {
     "wooorm/unist-util-visit": "^1.0.0"
   },
-  "repository": "wooorm/mdast-inline-links",
+  "repository": "wooorm/remark-inline-links",
   "scripts": [
     "index.js"
   ]

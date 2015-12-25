@@ -2,8 +2,8 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:inline-links:test
- * @fileoverview Test suite for mdast-inline-links.
+ * @module remark:inline-links:test
+ * @fileoverview Test suite for remark-inline-links.
  */
 
 'use strict';
@@ -15,16 +15,16 @@
  */
 
 var assert = require('assert');
-var mdast = require('mdast');
+var remark = require('remark');
 var inlineLinks = require('./index.js');
 
 /*
  * Tests.
  */
 
-describe('mdast-inline-links', function () {
+describe('remark-inline-links', function () {
     it('should work', function (done) {
-        mdast.use(inlineLinks).process([
+        remark.use(inlineLinks).process([
             '[foo], [foo][], [bar][foo].',
             '',
             '![foo], ![foo][], ![bar][foo].',

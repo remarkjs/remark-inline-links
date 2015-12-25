@@ -1,9 +1,9 @@
 // Dependencies:
-var mdast = require('mdast');
+var remark = require('remark');
 var inlineLinks = require('./index.js');
 
 // Process:
-var doc = mdast().use(inlineLinks).process(`[foo], [foo][], [bar][foo].
+var doc = remark().use(inlineLinks).process(`[foo], [foo][], [bar][foo].
 
 ![foo], ![foo][], ![bar][foo].
 

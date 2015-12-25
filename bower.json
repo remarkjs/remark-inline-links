@@ -1,6 +1,6 @@
 {
-  "name": "mdast-inline-links",
-  "main": "mdast-inline-links.js",
+  "name": "remark-inline-links",
+  "main": "remark-inline-links.js",
   "description": "Transform references and definitions into normal links and images",
   "license": "MIT",
   "keywords": [
@@ -10,11 +10,11 @@
     "normal",
     "link",
     "image",
-    "mdast"
+    "remark"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wooorm/mdast-inline-links.git"
+    "url": "https://github.com/wooorm/remark-inline-links.git"
   },
   "authors": [
     "Titus Wormer <tituswormer@gmail.com>"

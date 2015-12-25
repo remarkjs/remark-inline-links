@@ -2,7 +2,7 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:inline-links
+ * @module remark:inline-links
  * @fileoverview
  *   Plug-in to transform references and definitions into
  *   normal links and images.
@@ -63,7 +63,7 @@ function referenceFactory(definitions) {
 /**
  * Transformer.
  *
- * @param {Node} tree - mdast node to visit.
+ * @param {Node} tree - remark node to visit.
  */
 function transformer(tree) {
     var definitions = {};

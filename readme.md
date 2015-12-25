@@ -1,6 +1,6 @@
-# mdast-inline-links [![Build Status](https://img.shields.io/travis/wooorm/mdast-inline-links.svg)](https://travis-ci.org/wooorm/mdast-inline-links) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/mdast-inline-links.svg)](https://codecov.io/github/wooorm/mdast-inline-links)
+# remark-inline-links [![Build Status](https://img.shields.io/travis/wooorm/remark-inline-links.svg)](https://travis-ci.org/wooorm/remark-inline-links) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg)](https://codecov.io/github/wooorm/remark-inline-links)
 
-[**mdast**](https://github.com/wooorm/mdast) plug-in to transform
+[**remark**](https://github.com/wooorm/remark) plug-in to transform
 references and definitions into normal links and images.
 
 ## Installation
@@ -8,28 +8,28 @@ references and definitions into normal links and images.
 [npm](https://docs.npmjs.com/cli/install):
 
 ```bash
-npm install mdast-inline-links
+npm install remark-inline-links
 ```
 
-**mdast-inline-links** is also available for [bower](http://bower.io/#install-packages),
+**remark-inline-links** is also available for [bower](http://bower.io/#install-packages),
 [component](https://github.com/componentjs/component), and
 [duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
-module, [uncompressed](mdast-inline-links.js) and
-[compressed](mdast-inline-links.min.js).
+module, [uncompressed](remark-inline-links.js) and
+[compressed](remark-inline-links.min.js).
 
 ## Usage
 
 Dependencies:
 
 ```javascript
-var mdast = require('mdast');
-var inlineLinks = require('mdast-inline-links');
+var remark = require('remark');
+var inlineLinks = require('remark-inline-links');
 ```
 
 Process:
 
 ```javascript
-var doc = mdast().use(inlineLinks).process(`[foo], [foo][], [bar][foo].
+var doc = remark().use(inlineLinks).process(`[foo], [foo][], [bar][foo].
 ![foo], ![foo][], ![bar][foo].
 [foo]: http://example.com "Example Domain"`
 );
@@ -45,14 +45,14 @@ Yields:
 
 ## API
 
-### [mdast](https://github.com/wooorm/mdast#api).[use](https://github.com/wooorm/mdast#mdastuseplugin-options)(inlineLinks)
+### [remark](https://github.com/wooorm/remark#api).[use](https://github.com/wooorm/remark#remarkuseplugin-options)(inlineLinks)
 
 Transform references and definitions into normal links
 and images.
 
 ## Related
 
-*   [mdast-reference-links](https://github.com/wooorm/mdast-reference-links)
+*   [remark-reference-links](https://github.com/wooorm/remark-reference-links)
     — Reverse, thus rewriting normal links and images into references
     and definitions.
 
