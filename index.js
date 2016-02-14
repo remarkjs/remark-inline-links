@@ -42,14 +42,14 @@ function referenceFactory(definitions) {
             if (node.type === 'imageReference') {
                 replacement = {
                     'type': 'image',
-                    'src': definition.link,
+                    'url': definition.url,
                     'title': definition.title,
                     'alt': node.alt
                 };
             } else {
                 replacement = {
                     'type': 'link',
-                    'href': definition.link,
+                    'url': definition.url,
                     'title': definition.title,
                     'children': node.children
                 };
