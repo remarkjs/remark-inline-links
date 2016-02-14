@@ -1,18 +1,18 @@
-# remark-inline-links [![Build Status](https://img.shields.io/travis/wooorm/remark-inline-links.svg)](https://travis-ci.org/wooorm/remark-inline-links) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg)](https://codecov.io/github/wooorm/remark-inline-links)
+# remark-inline-links [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-[**remark**](https://github.com/wooorm/remark) plug-in to transform
+[**remark**][remark] plug-in to transform
 references and definitions into normal links and images.
 
 ## Installation
 
-[npm](https://docs.npmjs.com/cli/install):
+[npm][npm-install]:
 
 ```bash
 npm install remark-inline-links
 ```
 
-**remark-inline-links** is also available for as an AMD, CommonJS, and
-globals module, [uncompressed and compressed](https://github.com/wooorm/remark-inline-links/releases).
+**remark-inline-links** is also available as an AMD, CommonJS, and
+globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -46,17 +46,40 @@ Yields:
 
 ## API
 
-### [remark](https://github.com/wooorm/remark#api).[use](https://github.com/wooorm/remark#remarkuseplugin-options)(inlineLinks)
+### `remark.use(inlineLinks)`
 
-Transform references and definitions into normal links
-and images.
+Transform references and definitions into normal links and images.
 
 ## Related
 
-*   [remark-reference-links](https://github.com/wooorm/remark-reference-links)
+*   [`eush77/remark-defsplit`](https://github.com/eush77/remark-defsplit)
+    — Practically the same, but with URI-based identifiers instead of
+    numerical ones.
+
+*   [`wooorm/remark-reference-links`](https://github.com/wooorm/remark-reference-links)
     — Reverse, thus rewriting normal links and images into references
-    and definitions.
+    and definitions;
 
 ## License
 
-[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
+[MIT][license] © [Titus Wormer][author]
+
+<!-- Definitions -->
+
+[travis-badge]: https://img.shields.io/travis/wooorm/remark-inline-links/master.svg
+
+[travis]: https://travis-ci.org/wooorm/remark-inline-links
+
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg
+
+[codecov]: https://codecov.io/github/wooorm/remark-inline-links
+
+[npm-install]: https://docs.npmjs.com/cli/install
+
+[releases]: https://github.com/wooorm/remark-inline-links/releases
+
+[license]: LICENSE
+
+[author]: http://wooorm.com
+
+[remark]: https://github.com/wooorm/remark
