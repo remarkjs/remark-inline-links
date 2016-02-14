@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.0 / 2016-02-14
+==================
+
+*   Remove support for Duo ([`02dfdef`](https://github.com/wooorm/remark-inline-links/commit/02dfdef))
+*   Update for changes in remark@4.0.0 ([`225b525`](https://github.com/wooorm/remark-inline-links/commit/225b525))
+
 2.0.0 / 2015-12-25
 ==================
 
