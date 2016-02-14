@@ -11,9 +11,8 @@ references and definitions into normal links and images.
 npm install remark-inline-links
 ```
 
-**remark-inline-links** is also available for [duo](http://duojs.org/#getting-started),
-and as an AMD, CommonJS, and globals module, [uncompressed and
-compressed](https://github.com/wooorm/remark-inline-links/releases).
+**remark-inline-links** is also available for as an AMD, CommonJS, and
+globals module, [uncompressed and compressed](https://github.com/wooorm/remark-inline-links/releases).
 
 ## Usage
 
