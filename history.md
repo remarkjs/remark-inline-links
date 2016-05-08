@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.1 / 2016-05-08
+==================
+
+*   Fix incorrect handling of multiple definitions ([`a6d107e`](https://github.com/wooorm/remark-inline-links/commit/a6d107e))
+
 3.0.0 / 2016-02-14
 ==================
 
