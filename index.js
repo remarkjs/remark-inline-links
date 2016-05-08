@@ -17,15 +17,18 @@
  */
 
 var visit = require('unist-util-visit');
+var remove = require('unist-util-remove');
+var getDefinitions = require('mdast-util-definitions');
 
 /**
  * Factory to transform a reference based on `definitions`.
  *
- * @param {Object.<string, Node>} definitions - Map of ids
- *   to definitions.
+ * @param {Node} tree - Syntax tree.
  * @return {Function} - Reference handler.
  */
-function referenceFactory(definitions) {
+function referenceFactory(tree) {
+    var definitions = getDefinitions(tree);
+
     /**
      * Transform a reference based on bound `definitions`.
      *
@@ -35,7 +38,7 @@ function referenceFactory(definitions) {
      * @param {Node} parent - Parent of `node`.
      */
     function reference(node, index, parent) {
-        var definition = definitions[node.identifier.toUpperCase()];
+        var definition = definitions(node.identifier);
         var replacement;
 
         if (definition) {
@@ -68,14 +71,9 @@ function referenceFactory(definitions) {
  * @param {Node} tree - remark node to visit.
  */
 function transformer(tree) {
-    var definitions = {};
-    var reference = referenceFactory(definitions);
+    var reference = referenceFactory(tree);
 
-    visit(tree, 'definition', function (node, index, parent) {
-        definitions[node.identifier.toUpperCase()] = node;
-
-        parent.children.splice(index, 1);
-    });
+    remove(tree, 'definition');
 
     visit(tree, 'imageReference', reference);
     visit(tree, 'linkReference', reference);

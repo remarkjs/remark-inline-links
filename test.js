@@ -33,6 +33,8 @@ test('remark-inline-links', function (t) {
         '![baz], ![baz][], ![bar][baz].',
         '',
         '[foo]: http://example.com "Example Domain"',
+        '',
+        '[qux]: http://example.com#qux "Qux"',
         ''
     ].join('\n'), function (err, file, doc) {
         t.ifErr(err);

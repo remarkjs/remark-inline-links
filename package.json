@@ -13,6 +13,8 @@
     "remark"
   ],
   "dependencies": {
+    "mdast-util-definitions": "^1.1.0",
+    "unist-util-remove": "^0.2.1",
     "unist-util-visit": "^1.0.0"
   },
   "repository": {
@@ -24,7 +26,6 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
-  "author": "Titus Wormer <tituswormer@gmail.com>",
   "files": [
     "index.js"
   ],
