@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.2 / 2016-06-13
+==================
+
+*   Update `readme.md` ([`1430b62`](https://github.com/wooorm/remark-inline-links/commit/1430b62))
+*   Update dev-dependencies ([`39f98b7`](https://github.com/wooorm/remark-inline-links/commit/39f98b7))
+
 3.0.1 / 2016-05-08
 ==================
 
