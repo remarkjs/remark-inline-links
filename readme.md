@@ -1,11 +1,13 @@
-# remark-inline-links [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# remark-inline-links [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+
+<!--lint disable list-item-spacing-->
 
 [**remark**][remark] plug-in to transform
 references and definitions into normal links and images.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install remark-inline-links
@@ -55,7 +57,6 @@ Transform references and definitions into normal links and images.
 *   [`wooorm/remark-reference-links`](https://github.com/wooorm/remark-reference-links)
     — Reverse, thus rewriting normal links and images into references
     and definitions;
-
 *   [`eush77/remark-defsplit`](https://github.com/eush77/remark-defsplit)
     — Practically the same as `remark-reference-links`, but with
     URI-based identifiers instead of numerical ones.
@@ -66,20 +67,24 @@ Transform references and definitions into normal links and images.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/remark-inline-links/master.svg
+[build-badge]: https://img.shields.io/travis/wooorm/remark-inline-links.svg
 
-[travis]: https://travis-ci.org/wooorm/remark-inline-links
+[build-status]: https://travis-ci.org/wooorm/remark-inline-links
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg
 
-[codecov]: https://codecov.io/github/wooorm/remark-inline-links
+[coverage-status]: https://codecov.io/github/wooorm/remark-inline-links
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+
+[chat]: https://gitter.im/wooorm/remark
 
 [releases]: https://github.com/wooorm/remark-inline-links/releases
 
 [license]: LICENSE
 
 [author]: http://wooorm.com
+
+[npm]: https://docs.npmjs.com/cli/install
 
 [remark]: https://github.com/wooorm/remark
