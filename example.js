@@ -3,7 +3,7 @@ var remark = require('remark');
 var inlineLinks = require('./index.js');
 
 // Process:
-var doc = remark().use(inlineLinks).process([
+var file = remark().use(inlineLinks).process([
     '[foo], [foo][], [bar][foo].',
     '',
     '![foo], ![foo][], ![bar][foo].',
@@ -13,4 +13,4 @@ var doc = remark().use(inlineLinks).process([
 ].join('\n'));
 
 // Yields:
-console.log('md', doc);
+console.log('md', String(file));
