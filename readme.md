@@ -1,9 +1,7 @@
 # remark-inline-links [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
-<!--lint disable list-item-spacing-->
-
-[**remark**][remark] plug-in to transform
-references and definitions into normal links and images.
+[**remark**][remark] plug-in to transform references and definitions
+into normal links and images.
 
 ## Installation
 
@@ -12,9 +10,6 @@ references and definitions into normal links and images.
 ```bash
 npm install remark-inline-links
 ```
-
-**remark-inline-links** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -48,7 +43,7 @@ Yields:
 
 ## API
 
-### `remark.use(inlineLinks)`
+### `remark().use(inlineLinks)`
 
 Transform references and definitions into normal links and images.
 
@@ -78,8 +73,6 @@ Transform references and definitions into normal links and images.
 [chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
 
 [chat]: https://gitter.im/wooorm/remark
-
-[releases]: https://github.com/wooorm/remark-inline-links/releases
 
 [license]: LICENSE
 
