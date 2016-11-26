@@ -18,9 +18,6 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
-  "engines": {
-    "node": ">=0.11.0"
-  },
   "dependencies": {
     "mdast-util-definitions": "^1.1.1",
     "unist-util-remove": "^0.2.1",
