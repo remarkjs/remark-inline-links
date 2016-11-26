@@ -13,24 +13,20 @@ npm install remark-inline-links
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var remark = require('remark');
 var inlineLinks = require('remark-inline-links');
-```
 
-Process:
-
-```javascript
 var file = remark().use(inlineLinks).process([
-    '[foo], [foo][], [bar][foo].',
-    '',
-    '![foo], ![foo][], ![bar][foo].',
-    '',
-    '[foo]: http://example.com "Example Domain"',
-    ''
+  '[foo], [foo][], [bar][foo].',
+  '',
+  '![foo], ![foo][], ![bar][foo].',
+  '',
+  '[foo]: http://example.com "Example Domain"',
+  ''
 ].join('\n'));
+
+console.log(String(file));
 ```
 
 Yields:
