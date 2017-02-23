@@ -2,7 +2,7 @@
 
 var test = require('tape');
 var remark = require('remark');
-var inlineLinks = require('./index.js');
+var inlineLinks = require('./');
 
 test('remark-inline-links', function (t) {
   remark().use(inlineLinks).process([

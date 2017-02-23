@@ -17,7 +17,7 @@ npm install remark-inline-links
 var remark = require('remark');
 var inlineLinks = require('remark-inline-links');
 
-var file = remark().use(inlineLinks).process([
+var file = remark().use(inlineLinks).processSync([
   '[foo], [foo][], [bar][foo].',
   '',
   '![foo], ![foo][], ![bar][foo].',
