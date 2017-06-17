@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "mdast-util-definitions": "^1.1.1",
-    "unist-util-remove": "^0.2.1",
+    "unist-util-remove": "^1.0.0",
     "unist-util-visit": "^1.1.0"
   },
   "files": [
