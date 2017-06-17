@@ -54,12 +54,12 @@ Transform references and definitions into normal links and images.
 
 ## Related
 
-*   [`wooorm/remark-reference-links`](https://github.com/wooorm/remark-reference-links)
+*   [`remark-reference-links`](https://github.com/wooorm/remark-reference-links)
     — Reverse, thus rewriting normal links and images into references
-    and definitions;
-*   [`eush77/remark-defsplit`](https://github.com/eush77/remark-defsplit)
+    and definitions
+*   [`remark-defsplit`](https://github.com/eush77/remark-defsplit)
     — Practically the same as `remark-reference-links`, but with
-    URI-based identifiers instead of numerical ones.
+    URI-based identifiers instead of numerical ones
 
 ## License
 
