@@ -13,25 +13,34 @@ npm install remark-inline-links
 
 ## Usage
 
-```javascript
-var remark = require('remark');
-var inlineLinks = require('remark-inline-links');
+Say we have the following file, `example.md`:
 
-var file = remark().use(inlineLinks).processSync([
-  '[foo], [foo][], [bar][foo].',
-  '',
-  '![foo], ![foo][], ![bar][foo].',
-  '',
-  '[foo]: http://example.com "Example Domain"',
-  ''
-].join('\n'));
+```markdown
+[foo], [foo][], [bar][foo].
 
-console.log(String(file));
+![foo], ![foo][], ![bar][foo].
+
+[foo]: http://example.com "Example Domain"
 ```
 
-Yields:
+And our script, `example.js`, looks as follows:
 
-```md
+```javascript
+var fs = require('fs');
+var remark = require('remark');
+var links = require('remark-inline-links');
+
+remark()
+  .use(links)
+  .process(fs.readFileSync('example.md'), function (err, file) {
+    if (err) throw err;
+    console.log(String(file));
+  });
+```
+
+Now, running `node example` yields:
+
+```markdown
 [foo](http://example.com "Example Domain"), [foo](http://example.com "Example Domain"), [bar](http://example.com "Example Domain").
 
 ![foo](http://example.com "Example Domain"), ![foo](http://example.com "Example Domain"), ![bar](http://example.com "Example Domain").
