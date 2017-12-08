@@ -54,7 +54,7 @@ Transform references and definitions into normal links and images.
 
 ## Related
 
-*   [`remark-reference-links`](https://github.com/wooorm/remark-reference-links)
+*   [`remark-reference-links`](https://github.com/remarkjs/remark-reference-links)
     — Reverse, thus rewriting normal links and images into references
     and definitions
 *   [`remark-defsplit`](https://github.com/eush77/remark-defsplit)
@@ -67,17 +67,17 @@ Transform references and definitions into normal links and images.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-inline-links.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-inline-links.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-inline-links
+[build-status]: https://travis-ci.org/remarkjs/remark-inline-links
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-inline-links.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-inline-links.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-inline-links
+[coverage-status]: https://codecov.io/github/remarkjs/remark-inline-links
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/remark
+[chat]: https://gitter.im/remarkjs/remark
 
 [license]: LICENSE
 
@@ -85,4 +85,4 @@ Transform references and definitions into normal links and images.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[remark]: https://github.com/wooorm/remark
+[remark]: https://github.com/remarkjs/remark

@@ -12,8 +12,8 @@
     "image",
     "remark"
   ],
-  "repository": "https://github.com/wooorm/remark-inline-links",
-  "bugs": "https://github.com/wooorm/remark-inline-links/issues",
+  "repository": "remarkjs/remark-inline-links",
+  "bugs": "https://github.com/remarkjs/remark-inline-links/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
@@ -60,6 +60,8 @@
     ]
   },
   "remarkConfig": {
-    "plugins": ["preset-wooorm"]
+    "plugins": [
+      "preset-wooorm"
+    ]
   }
 }
