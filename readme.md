@@ -48,9 +48,17 @@ Now, running `node example` yields:
 
 ## API
 
-### `remark().use(inlineLinks)`
+### `remark().use(inlineLinks[, options])`
 
 Transform references and definitions into normal links and images.
+
+##### Options
+
+###### `options.commonmark`
+
+`boolean`, default: `false` — Turn on to use CommonMark handling of duplicate
+definitions: use the first definition, ignore duplicate definitions.
+The default behaviour is to prefer the last found duplicate definition.
 
 ## Related
 

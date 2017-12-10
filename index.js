@@ -6,23 +6,22 @@ var getDefinitions = require('mdast-util-definitions');
 
 module.exports = inlineLinks;
 
-function inlineLinks() {
+function inlineLinks(options) {
   return transformer;
-}
 
-/* Transformer. */
-function transformer(tree) {
-  var reference = referenceFactory(tree);
+  function transformer(tree) {
+    var reference = referenceFactory(tree, options);
 
-  remove(tree, 'definition');
+    remove(tree, 'definition');
 
-  visit(tree, 'imageReference', reference);
-  visit(tree, 'linkReference', reference);
+    visit(tree, 'imageReference', reference);
+    visit(tree, 'linkReference', reference);
+  }
 }
 
 /* Factory to transform a reference based on `definitions`. */
-function referenceFactory(tree) {
-  var definitions = getDefinitions(tree);
+function referenceFactory(tree, options) {
+  var definitions = getDefinitions(tree, options);
 
   return reference;
 
