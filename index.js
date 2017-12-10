@@ -47,7 +47,7 @@ function referenceFactory(tree, options) {
         };
       }
 
-      parent.children.splice(index, 1, replacement);
+      parent.children[index] = replacement;
     }
   }
 }
