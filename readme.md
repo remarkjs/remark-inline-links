@@ -26,16 +26,16 @@ Say we have the following file, `example.md`:
 And our script, `example.js`, looks as follows:
 
 ```javascript
-var fs = require('fs');
-var remark = require('remark');
-var links = require('remark-inline-links');
+var fs = require('fs')
+var remark = require('remark')
+var links = require('remark-inline-links')
 
 remark()
   .use(links)
-  .process(fs.readFileSync('example.md'), function (err, file) {
-    if (err) throw err;
-    console.log(String(file));
-  });
+  .process(fs.readFileSync('example.md'), function(err, file) {
+    if (err) throw err
+    console.log(String(file))
+  })
 ```
 
 Now, running `node example` yields:
