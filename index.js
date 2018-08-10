@@ -12,10 +12,9 @@ function inlineLinks(options) {
   function transformer(tree) {
     var reference = referenceFactory(tree, options)
 
-    remove(tree, 'definition')
+    visit(tree, ['imageReference', 'linkReference'], reference)
 
-    visit(tree, 'imageReference', reference)
-    visit(tree, 'linkReference', reference)
+    remove(tree, 'definition')
   }
 }
 
@@ -29,22 +28,21 @@ function referenceFactory(tree, options) {
   function reference(node, index, parent) {
     var definition = definitions(node.identifier)
     var replacement
+    var image
 
     if (definition) {
-      if (node.type === 'imageReference') {
-        replacement = {
-          type: 'image',
-          url: definition.url,
-          title: definition.title,
-          alt: node.alt
-        }
+      image = node.type === 'imageReference'
+
+      replacement = {
+        type: image ? 'image' : 'link',
+        url: definition.url,
+        title: definition.title
+      }
+
+      if (image) {
+        replacement.alt = node.alt
       } else {
-        replacement = {
-          type: 'link',
-          url: definition.url,
-          title: definition.title,
-          children: node.children
-        }
+        replacement.children = node.children
       }
 
       parent.children[index] = replacement
