@@ -14,9 +14,9 @@
   ],
   "repository": "remarkjs/remark-inline-links",
   "bugs": "https://github.com/remarkjs/remark-inline-links/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "dependencies": {
     "mdast-util-definitions": "^1.1.1",
