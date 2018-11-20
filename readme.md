@@ -1,4 +1,11 @@
-# remark-inline-links [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+# remark-inline-links
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Chat][chat-badge]][chat]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 
 [**remark**][remark] plugin to transform references and definitions into normal
 links and images.
@@ -89,15 +96,25 @@ repository, organisation, or community you agree to abide by its terms.
 
 [build-badge]: https://img.shields.io/travis/remarkjs/remark-inline-links.svg
 
-[build-status]: https://travis-ci.org/remarkjs/remark-inline-links
+[build]: https://travis-ci.org/remarkjs/remark-inline-links
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-inline-links.svg
 
-[coverage-status]: https://codecov.io/github/remarkjs/remark-inline-links
+[coverage]: https://codecov.io/github/remarkjs/remark-inline-links
 
-[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
+[downloads-badge]: https://img.shields.io/npm/dm/remark-inline-links.svg
 
-[chat]: https://gitter.im/remarkjs/remark
+[downloads]: https://www.npmjs.com/package/remark-inline-links
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/remark
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
 
 [license]: license
 
