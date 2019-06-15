@@ -1,16 +1,19 @@
 {
   "name": "remark-inline-links",
   "version": "3.1.2",
-  "description": "Transform references and definitions into normal links and images",
+  "description": "remark plugin to transform references and definitions into normal links and images",
   "license": "MIT",
   "keywords": [
+    "unified",
+    "remark",
+    "plugin",
+    "mdast",
+    "markdown",
     "reference",
     "definition",
-    "to",
     "normal",
     "link",
-    "image",
-    "remark"
+    "image"
   ],
   "repository": "remarkjs/remark-inline-links",
   "bugs": "https://github.com/remarkjs/remark-inline-links/issues",
