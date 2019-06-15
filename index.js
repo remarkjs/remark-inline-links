@@ -18,13 +18,13 @@ function inlineLinks(options) {
   }
 }
 
-/* Factory to transform a reference based on `definitions`. */
+// Factory to transform a reference based on `definitions`.
 function referenceFactory(tree, options) {
   var definitions = getDefinitions(tree, options)
 
   return reference
 
-  /* Transform a reference based on bound `definitions`. */
+  // Transform a reference based on bound `definitions`.
   function reference(node, index, parent) {
     var definition = definitions(node.identifier)
     var replacement
