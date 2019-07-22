@@ -69,6 +69,12 @@ The default behaviour is to prefer the last found duplicate definition.
 Turn on to use CommonMark handling of duplicate definitions: use the first
 definition, ignore duplicate definitions.
 
+## Security
+
+Use of `remark-inline-links` does not involve [**rehype**][rehype]
+([**hast**][hast]) or user content so there are no openings for
+[cross-site scripting (XSS)][xss] attacks.
+
 ## Related
 
 *   [`remark-bookmarks`](https://github.com/ben-eb/remark-bookmarks)
@@ -139,3 +145,9 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [remark]: https://github.com/remarkjs/remark
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[rehype]: https://github.com/rehypejs/rehype
+
+[hast]: https://github.com/syntax-tree/hast
