@@ -29,7 +29,7 @@
   "dependencies": {
     "mdast-util-definitions": "^2.0.0",
     "unist-util-remove": "^2.0.0",
-    "unist-util-visit": "^1.1.0"
+    "unist-util-visit": "^2.0.0"
   },
   "files": [
     "index.js"
