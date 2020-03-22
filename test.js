@@ -4,7 +4,7 @@ var test = require('tape')
 var remark = require('remark')
 var inlineLinks = require('.')
 
-test('remark-inline-links', function(t) {
+test('remark-inline-links', function (t) {
   t.plan(4)
 
   remark()
@@ -24,7 +24,7 @@ test('remark-inline-links', function(t) {
         '[qux]: http://example.com#qux "Qux"',
         ''
       ].join('\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [
@@ -60,7 +60,7 @@ test('remark-inline-links', function(t) {
         '[foo]: http://bravo.com',
         ''
       ].join('\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [null, '[foo](http://alpha.com).\n'],
@@ -80,7 +80,7 @@ test('remark-inline-links', function(t) {
         '[foo]: http://bravo.com',
         ''
       ].join('\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [null, '[foo](http://bravo.com).\n'],
@@ -100,7 +100,7 @@ test('remark-inline-links', function(t) {
         '[foo]: http://bravo.com',
         ''
       ].join('\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [null, '[foo](http://bravo.com).\n'],
