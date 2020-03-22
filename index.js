@@ -1,7 +1,6 @@
 'use strict'
 
 var visit = require('unist-util-visit')
-var remove = require('unist-util-remove')
 var getDefinitions = require('mdast-util-definitions')
 
 module.exports = inlineLinks
@@ -10,42 +9,42 @@ function inlineLinks(options) {
   return transformer
 
   function transformer(tree) {
-    var reference = referenceFactory(tree, options)
+    var definitions = getDefinitions(tree, options)
 
-    visit(tree, ['imageReference', 'linkReference'], reference)
+    visit(tree, onvisit)
 
-    remove(tree, 'definition')
-  }
-}
+    function onvisit(node, index, parent) {
+      var definition
+      var replacement
+      var image
 
-// Factory to transform a reference based on `definitions`.
-function referenceFactory(tree, options) {
-  var definitions = getDefinitions(tree, options)
-
-  return reference
-
-  // Transform a reference based on bound `definitions`.
-  function reference(node, index, parent) {
-    var definition = definitions(node.identifier)
-    var replacement
-    var image
-
-    if (definition) {
-      image = node.type === 'imageReference'
-
-      replacement = {
-        type: image ? 'image' : 'link',
-        url: definition.url,
-        title: definition.title
+      if (node.type === 'definition') {
+        parent.children.splice(index, 1)
+        return [visit.SKIP, index]
       }
 
-      if (image) {
-        replacement.alt = node.alt
-      } else {
-        replacement.children = node.children
-      }
+      if (node.type === 'imageReference' || node.type === 'linkReference') {
+        definition = definitions(node.identifier)
 
-      parent.children[index] = replacement
+        if (definition) {
+          image = node.type === 'imageReference'
+
+          replacement = {
+            type: image ? 'image' : 'link',
+            url: definition.url,
+            title: definition.title
+          }
+
+          if (image) {
+            replacement.alt = node.alt
+          } else {
+            replacement.children = node.children
+          }
+
+          parent.children[index] = replacement
+          return [visit.SKIP, index]
+        }
+      }
     }
   }
 }
