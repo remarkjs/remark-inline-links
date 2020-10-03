@@ -5,7 +5,7 @@ var remark = require('remark')
 var inlineLinks = require('.')
 
 test('remark-inline-links', function (t) {
-  t.plan(4)
+  t.plan(2)
 
   remark()
     .use(inlineLinks)
@@ -50,46 +50,6 @@ test('remark-inline-links', function (t) {
     )
 
   remark()
-    .use(inlineLinks, {commonmark: true})
-    .process(
-      [
-        '[foo][].',
-        '',
-        '[foo]: http://alpha.com',
-        '',
-        '[foo]: http://bravo.com',
-        ''
-      ].join('\n'),
-      function (err, file) {
-        t.deepEqual(
-          [err, String(file)],
-          [null, '[foo](http://alpha.com).\n'],
-          'should support `commonmark: true`'
-        )
-      }
-    )
-
-  remark()
-    .use(inlineLinks, {commonmark: false})
-    .process(
-      [
-        '[foo][].',
-        '',
-        '[foo]: http://alpha.com',
-        '',
-        '[foo]: http://bravo.com',
-        ''
-      ].join('\n'),
-      function (err, file) {
-        t.deepEqual(
-          [err, String(file)],
-          [null, '[foo](http://bravo.com).\n'],
-          'should support `commonmark: false`'
-        )
-      }
-    )
-
-  remark()
     .use(inlineLinks)
     .process(
       [
@@ -103,8 +63,8 @@ test('remark-inline-links', function (t) {
       function (err, file) {
         t.deepEqual(
           [err, String(file)],
-          [null, '[foo](http://bravo.com).\n'],
-          'should default to `commonmark: false`'
+          [null, '[foo](http://alpha.com).\n'],
+          'should prefer the first definition'
         )
       }
     )

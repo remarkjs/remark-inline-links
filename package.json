@@ -27,7 +27,7 @@
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "dependencies": {
-    "mdast-util-definitions": "^2.0.0",
+    "mdast-util-definitions": "^4.0.0",
     "unist-util-visit": "^2.0.0"
   },
   "files": [

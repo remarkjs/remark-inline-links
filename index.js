@@ -5,11 +5,11 @@ var getDefinitions = require('mdast-util-definitions')
 
 module.exports = inlineLinks
 
-function inlineLinks(options) {
+function inlineLinks() {
   return transformer
 
   function transformer(tree) {
-    var definitions = getDefinitions(tree, options)
+    var definitions = getDefinitions(tree)
 
     visit(tree, onvisit)
 
