@@ -26,6 +26,7 @@ function inlineLinks() {
       if (node.type === 'imageReference' || node.type === 'linkReference') {
         definition = definitions(node.identifier)
 
+        /* istanbul ignore else - plugins could inject undefined references. */
         if (definition) {
           image = node.type === 'imageReference'
 

@@ -38,9 +38,9 @@ test('remark-inline-links', function (t) {
                 '![foo](http://example.com "Example Domain"), ' +
                 '![bar](http://example.com "Example Domain").',
               '',
-              '[baz], [baz][], [bar][baz].',
+              '\\[baz], \\[baz]\\[], \\[bar]\\[baz].',
               '',
-              '![baz], ![baz][], ![bar][baz].',
+              '\\!\\[baz], \\!\\[baz]\\[], \\!\\[bar]\\[baz].',
               ''
             ].join('\n')
           ],
