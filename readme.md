@@ -75,8 +75,6 @@ Use of `remark-inline-links` does not involve [**rehype**][rehype]
 
 ## Related
 
-*   [`remark-bookmarks`](https://github.com/ben-eb/remark-bookmarks)
-    — Link manager
 *   [`remark-reference-links`](https://github.com/remarkjs/remark-reference-links)
     — Reverse of `remark-inline-links`, thus rewriting normal links and images
     into references and definitions
