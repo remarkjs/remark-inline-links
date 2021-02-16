@@ -24,9 +24,9 @@ test('remark-inline-links', function (t) {
         '[qux]: http://example.com#qux "Qux"',
         ''
       ].join('\n'),
-      function (err, file) {
+      function (error, file) {
         t.deepEqual(
-          [err, String(file)],
+          [error, String(file)],
           [
             null,
             [
@@ -60,9 +60,9 @@ test('remark-inline-links', function (t) {
         '[foo]: http://bravo.com',
         ''
       ].join('\n'),
-      function (err, file) {
+      function (error, file) {
         t.deepEqual(
-          [err, String(file)],
+          [error, String(file)],
           [null, '[foo](http://alpha.com).\n'],
           'should prefer the first definition'
         )
