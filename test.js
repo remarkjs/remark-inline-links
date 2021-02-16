@@ -40,7 +40,7 @@ test('remark-inline-links', function (t) {
               '',
               '\\[baz], \\[baz]\\[], \\[bar]\\[baz].',
               '',
-              '\\!\\[baz], \\!\\[baz]\\[], \\!\\[bar]\\[baz].',
+              '!\\[baz], !\\[baz]\\[], !\\[bar]\\[baz].',
               ''
             ].join('\n')
           ],
