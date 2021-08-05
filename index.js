@@ -1,11 +1,7 @@
-'use strict'
+import visit from 'unist-util-visit'
+import getDefinitions from 'mdast-util-definitions'
 
-var visit = require('unist-util-visit')
-var getDefinitions = require('mdast-util-definitions')
-
-module.exports = inlineLinks
-
-function inlineLinks() {
+export default function remarkInlineLinks() {
   return transformer
 
   function transformer(tree) {

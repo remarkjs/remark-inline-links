@@ -1,14 +1,12 @@
-'use strict'
-
-var test = require('tape')
-var remark = require('remark')
-var inlineLinks = require('.')
+import test from 'tape'
+import remark from 'remark'
+import remarkInlineLinks from './index.js'
 
 test('remark-inline-links', function (t) {
   t.plan(2)
 
   remark()
-    .use(inlineLinks)
+    .use(remarkInlineLinks)
     .process(
       [
         '[foo], [foo][], [bar][foo].',
@@ -50,7 +48,7 @@ test('remark-inline-links', function (t) {
     )
 
   remark()
-    .use(inlineLinks)
+    .use(remarkInlineLinks)
     .process(
       [
         '[foo][].',
