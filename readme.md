@@ -20,6 +20,9 @@ previous versions of remark.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -38,17 +41,19 @@ Say we have the following file, `example.md`:
 [foo]: http://example.com "Example Domain"
 ```
 
-And our script, `example.js`, looks as follows:
+And our module, `example.js`, looks as follows:
 
 ```js
-var fs = require('fs')
-var remark = require('remark')
-var links = require('remark-inline-links')
+import fs from 'node:fs'
+import remark from 'remark'
+import remarkInlineLinks from 'remark-inline-links'
+
+const buf = fs.readFileSync('example.md')
 
 remark()
-  .use(links)
-  .process(fs.readFileSync('example.md'), function(err, file) {
-    if (err) throw err
+  .use(remarkInlineLinks)
+  .process(buf)
+  .then((file) => {
     console.log(String(file))
   })
 ```
@@ -63,7 +68,10 @@ Now, running `node example` yields:
 
 ## API
 
-### `remark().use(inlineLinks)`
+This package exports no identifiers.
+The default export is `remarkInlineLinks`.
+
+### `unified().use(remarkInlineLinks)`
 
 Plugin to transform references and definitions into normal links and images.
 
