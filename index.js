@@ -1,16 +1,27 @@
+/**
+ * @typedef {import('mdast').Root} Root
+ * @typedef {import('mdast').Image} Image
+ * @typedef {import('mdast').Link} Link
+ */
+
 import {visit, SKIP} from 'unist-util-visit'
 import {definitions} from 'mdast-util-definitions'
 
+/**
+ * Plugin to transform references and definitions into normal links and images.
+ *
+ * @type {import('unified').Plugin<void[], Root>}
+ */
 export default function remarkInlineLinks() {
-  return transformer
-
-  function transformer(tree) {
+  return (tree) => {
     const definition = definitions(tree)
 
-    visit(tree, onvisit)
-
-    function onvisit(node, index, parent) {
-      if (node.type === 'definition') {
+    visit(tree, (node, index, parent) => {
+      if (
+        node.type === 'definition' &&
+        parent !== null &&
+        typeof index === 'number'
+      ) {
         parent.children.splice(index, 1)
         return [SKIP, index]
       }
@@ -18,25 +29,22 @@ export default function remarkInlineLinks() {
       if (node.type === 'imageReference' || node.type === 'linkReference') {
         const def = definition(node.identifier)
 
-        /* istanbul ignore else - plugins could inject undefined references. */
-        if (def) {
-          const image = node.type === 'imageReference'
-          const replacement = {
-            type: image ? 'image' : 'link',
-            url: def.url,
-            title: def.title
-          }
-
-          if (image) {
-            replacement.alt = node.alt
-          } else {
-            replacement.children = node.children
-          }
+        if (def && parent !== null && typeof index === 'number') {
+          /** @type {Image|Link} */
+          const replacement =
+            node.type === 'imageReference'
+              ? {type: 'image', url: def.url, title: def.title, alt: node.alt}
+              : {
+                  type: 'link',
+                  url: def.url,
+                  title: def.title,
+                  children: node.children
+                }
 
           parent.children[index] = replacement
           return [SKIP, index]
         }
       }
-    }
+    })
   }
 }
