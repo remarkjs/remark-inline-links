@@ -1,5 +1,2 @@
 coverage/
-remark-inline-links.js
-remark-inline-links.min.js
-*.json
 *.md
