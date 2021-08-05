@@ -1,35 +1,35 @@
-import visit from 'unist-util-visit'
-import getDefinitions from 'mdast-util-definitions'
+import {visit, SKIP} from 'unist-util-visit'
+import {definitions} from 'mdast-util-definitions'
 
 export default function remarkInlineLinks() {
   return transformer
 
   function transformer(tree) {
-    var definitions = getDefinitions(tree)
+    var definition = definitions(tree)
 
     visit(tree, onvisit)
 
     function onvisit(node, index, parent) {
-      var definition
+      var def
       var replacement
       var image
 
       if (node.type === 'definition') {
         parent.children.splice(index, 1)
-        return [visit.SKIP, index]
+        return [SKIP, index]
       }
 
       if (node.type === 'imageReference' || node.type === 'linkReference') {
-        definition = definitions(node.identifier)
+        def = definition(node.identifier)
 
         /* istanbul ignore else - plugins could inject undefined references. */
-        if (definition) {
+        if (def) {
           image = node.type === 'imageReference'
 
           replacement = {
             type: image ? 'image' : 'link',
-            url: definition.url,
-            title: definition.title
+            url: def.url,
+            title: def.title
           }
 
           if (image) {
@@ -39,7 +39,7 @@ export default function remarkInlineLinks() {
           }
 
           parent.children[index] = replacement
-          return [visit.SKIP, index]
+          return [SKIP, index]
         }
       }
     }
