@@ -1,5 +1,5 @@
 import test from 'tape'
-import remark from 'remark'
+import {remark} from 'remark'
 import remarkInlineLinks from './index.js'
 
 test('remark-inline-links', function (t) {
