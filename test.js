@@ -2,7 +2,7 @@ import test from 'tape'
 import {remark} from 'remark'
 import remarkInlineLinks from './index.js'
 
-test('remark-inline-links', function (t) {
+test('remark-inline-links', (t) => {
   t.plan(2)
 
   remark()
@@ -22,7 +22,7 @@ test('remark-inline-links', function (t) {
         '[qux]: http://example.com#qux "Qux"',
         ''
       ].join('\n'),
-      function (error, file) {
+      (error, file) => {
         t.deepEqual(
           [error, String(file)],
           [
@@ -58,7 +58,7 @@ test('remark-inline-links', function (t) {
         '[foo]: http://bravo.com',
         ''
       ].join('\n'),
-      function (error, file) {
+      (error, file) => {
         t.deepEqual(
           [error, String(file)],
           [null, '[foo](http://alpha.com).\n'],

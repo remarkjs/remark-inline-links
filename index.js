@@ -5,28 +5,23 @@ export default function remarkInlineLinks() {
   return transformer
 
   function transformer(tree) {
-    var definition = definitions(tree)
+    const definition = definitions(tree)
 
     visit(tree, onvisit)
 
     function onvisit(node, index, parent) {
-      var def
-      var replacement
-      var image
-
       if (node.type === 'definition') {
         parent.children.splice(index, 1)
         return [SKIP, index]
       }
 
       if (node.type === 'imageReference' || node.type === 'linkReference') {
-        def = definition(node.identifier)
+        const def = definition(node.identifier)
 
         /* istanbul ignore else - plugins could inject undefined references. */
         if (def) {
-          image = node.type === 'imageReference'
-
-          replacement = {
+          const image = node.type === 'imageReference'
+          const replacement = {
             type: image ? 'image' : 'link',
             url: def.url,
             title: def.title
