@@ -1,6 +1,6 @@
 {
   "name": "remark-inline-links",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "remark plugin to transform references and definitions into normal links and images",
   "license": "MIT",
   "keywords": [
