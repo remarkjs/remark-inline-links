@@ -8,8 +8,8 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**[remark][]** plugin to change references and definitions into normal
-links and images.
+**[remark][]** plugin to turn references and definitions into normal links and
+images.
 
 ## Contents
 
@@ -32,12 +32,6 @@ This package is a [unified][] ([remark][]) plugin to turn references
 (`[text][id]`, `![alt][id]`) and definitions (`[id]: url`) into links
 (`[text](url)`) and images (`![alt](url)`).
 
-**unified** is a project that transforms content with abstract syntax trees
-(ASTs).
-**remark** adds support for markdown to unified.
-**mdast** is the markdown AST that remark uses.
-This is a remark plugin that transforms mdast.
-
 ## When should I use this?
 
 This project is useful when you want to transform markdown and prefer that it
@@ -52,8 +46,8 @@ links and images into references and definitions.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+This package is [ESM only][esm].
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install remark-inline-links
@@ -85,25 +79,21 @@ Say we have the following file `example.md`:
 [foo]: http://example.com "Example Domain"
 ```
 
-And our module `example.js` looks as follows:
+…and a module `example.js`:
 
 ```js
-import {read} from 'to-vfile'
 import {remark} from 'remark'
 import remarkInlineLinks from 'remark-inline-links'
+import {read} from 'to-vfile'
 
-main()
+const file = await remark()
+  .use(remarkInlineLinks)
+  .process(await read('example.md'))
 
-async function main() {
-  const file = await remark()
-    .use(remarkInlineLinks)
-    .process(await read('example.md'))
-
-  console.log(String(file))
-}
+console.log(String(file))
 ```
 
-Now running `node example.js` yields:
+…then running `node example.js` yields:
 
 ```markdown
 [foo](http://example.com "Example Domain"), [foo](http://example.com "Example Domain"), [bar](http://example.com "Example Domain").
@@ -114,32 +104,41 @@ Now running `node example.js` yields:
 ## API
 
 This package exports no identifiers.
-The default export is `remarkInlineLinks`.
+The default export is [`remarkInlineLinks`][api-remark-inline-links].
 
 ### `unified().use(remarkInlineLinks)`
 
-Plugin to change references and definitions into normal links and images.
-There are no options.
+Turn references and definitions into normal links and images.
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-There are no extra exported types.
+
+###### Parameters
+
+There are no parameters.
+
+###### Returns
+
+Transform ([`Transformer`][unified-transformer]).
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `remark-inline-links@^6`,
+compatible with Node.js 12.
 
 This plugin works with `unified` version 3+ and `remark` version 4+.
 
 ## Security
 
 Use of `remark-inline-links` does not involve **[rehype][]** (**[hast][]**) or
-user content so there are no openings for [cross-site scripting (XSS)][xss]
-attacks.
+user content so there are no openings for
+[cross-site scripting (XSS)][wiki-xss] attacks.
 
 ## Related
 
@@ -180,9 +179,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/remark-inline-links
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-inline-links.svg
+[size-badge]: https://img.shields.io/bundlejs/size/remark-inline-links
 
-[size]: https://bundlephobia.com/result?p=remark-inline-links
+[size]: https://bundlejs.com/?q=remark-inline-links
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -196,32 +195,38 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
 [esmsh]: https://esm.sh
 
 [health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
+[contributing]: https://github.com/remarkjs/.github/blob/main/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
+[support]: https://github.com/remarkjs/.github/blob/main/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
+[coc]: https://github.com/remarkjs/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
 [author]: https://wooorm.com
 
-[remark]: https://github.com/remarkjs/remark
-
-[unified]: https://github.com/unifiedjs/unified
-
-[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
-
-[typescript]: https://www.typescriptlang.org
+[hast]: https://github.com/syntax-tree/hast
 
 [rehype]: https://github.com/rehypejs/rehype
 
-[hast]: https://github.com/syntax-tree/hast
+[remark]: https://github.com/remarkjs/remark
 
 [remark-defsplit]: https://github.com/remarkjs/remark-defsplit
 
 [remark-reference-links]: https://github.com/remarkjs/remark-reference-links
+
+[typescript]: https://www.typescriptlang.org
+
+[unified]: https://github.com/unifiedjs/unified
+
+[unified-transformer]: https://github.com/unifiedjs/unified#transformer
+
+[wiki-xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[api-remark-inline-links]: #unifieduseremarkinlinelinks
