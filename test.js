@@ -1,69 +1,65 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {remark} from 'remark'
 import remarkInlineLinks from './index.js'
 
-test('remark-inline-links', (t) => {
-  t.plan(2)
-
-  remark()
-    .use(remarkInlineLinks)
-    .process(
-      [
-        '[foo], [foo][], [bar][foo].',
-        '',
-        '![foo], ![foo][], ![bar][foo].',
-        '',
-        '[baz], [baz][], [bar][baz].',
-        '',
-        '![baz], ![baz][], ![bar][baz].',
-        '',
-        '[foo]: http://example.com "Example Domain"',
-        '',
-        '[qux]: http://example.com#qux "Qux"',
-        ''
-      ].join('\n'),
-      (error, file) => {
-        t.deepEqual(
-          [error, String(file)],
-          [
-            null,
+test('remark-inline-links', async function (t) {
+  await t.test('should work', async function () {
+    assert.equal(
+      String(
+        await remark()
+          .use(remarkInlineLinks)
+          .process(
             [
-              '[foo](http://example.com "Example Domain"), ' +
-                '[foo](http://example.com "Example Domain"), ' +
-                '[bar](http://example.com "Example Domain").',
+              '[foo], [foo][], [bar][foo].',
               '',
-              '![foo](http://example.com "Example Domain"), ' +
-                '![foo](http://example.com "Example Domain"), ' +
-                '![bar](http://example.com "Example Domain").',
+              '![foo], ![foo][], ![bar][foo].',
               '',
-              '\\[baz], \\[baz]\\[], \\[bar]\\[baz].',
+              '[baz], [baz][], [bar][baz].',
               '',
-              '!\\[baz], !\\[baz]\\[], !\\[bar]\\[baz].',
+              '![baz], ![baz][], ![bar][baz].',
+              '',
+              '[foo]: http://example.com "Example Domain"',
+              '',
+              '[qux]: http://example.com#qux "Qux"',
               ''
             ].join('\n')
-          ],
-          'should process'
-        )
-      }
-    )
-
-  remark()
-    .use(remarkInlineLinks)
-    .process(
+          )
+      ),
       [
-        '[foo][].',
+        '[foo](http://example.com "Example Domain"), ' +
+          '[foo](http://example.com "Example Domain"), ' +
+          '[bar](http://example.com "Example Domain").',
         '',
-        '[foo]: http://alpha.com',
+        '![foo](http://example.com "Example Domain"), ' +
+          '![foo](http://example.com "Example Domain"), ' +
+          '![bar](http://example.com "Example Domain").',
         '',
-        '[foo]: http://bravo.com',
+        '\\[baz], \\[baz]\\[], \\[bar]\\[baz].',
+        '',
+        '!\\[baz], !\\[baz]\\[], !\\[bar]\\[baz].',
         ''
-      ].join('\n'),
-      (error, file) => {
-        t.deepEqual(
-          [error, String(file)],
-          [null, '[foo](http://alpha.com).\n'],
-          'should prefer the first definition'
-        )
-      }
+      ].join('\n')
     )
+  })
+
+  await t.test('should prefer the first definition', async function () {
+    assert.equal(
+      String(
+        await remark()
+          .use(remarkInlineLinks)
+          .process(
+            [
+              '[foo][].',
+              '',
+              '[foo]: http://alpha.com',
+              '',
+              '[foo]: http://bravo.com',
+              ''
+            ].join('\n')
+          )
+      ),
+      '[foo](http://alpha.com).\n'
+    )
+  })
 })
