@@ -56,14 +56,14 @@ npm install remark-inline-links
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkInlineLinks from 'https://esm.sh/remark-inline-links@6'
+import remarkInlineLinks from 'https://esm.sh/remark-inline-links@7'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkInlineLinks from 'https://esm.sh/remark-inline-links@6?bundle'
+  import remarkInlineLinks from 'https://esm.sh/remark-inline-links@7?bundle'
 </script>
 ```
 
